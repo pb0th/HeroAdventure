@@ -19,17 +19,20 @@ public class EnemyDamage : MonoBehaviour
         swordCollider.enabled = false;
     }
     
+    // trigger attack animation
     public void AttackPlayer() {
         animator.SetTrigger("Attack");
 
     }
 
 
+    // enable collider on attack animation start
     public void EnableSwordCollider() {
         // Debug.Log("Enable collider");
         swordCollider.enabled = true;
     }
 
+    // disable collider on attack animation start
     public void DisableSwordCollider()
     {
         // Debug.Log("Disable Collider");

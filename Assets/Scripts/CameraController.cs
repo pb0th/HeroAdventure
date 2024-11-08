@@ -10,9 +10,10 @@ public class CameraController : MonoBehaviour
 
     
 
-    // Update is called once per frame
+    
     void Update()
     {
+        // make the camera follow the player's position on every frame
         transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
         lookAhead = Mathf.Lerp(
             lookAhead,

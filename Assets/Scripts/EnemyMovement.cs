@@ -24,12 +24,15 @@ public class EnemyMovement : MonoBehaviour
     {
         var currentScale = transform.localScale;
         
+
         if(isChasing) {
             float distanceToPlayer = Mathf.Abs(transform.position.x - player.position.x);
+            // if the player gets close enough, start attacking
             if (distanceToPlayer <= closeRangeDistance)
             {
                 enemyDamage.AttackPlayer();
             }
+            // else just continue chasing
             else
             {
                 ChasePlayer(currentScale);        
@@ -38,7 +41,9 @@ public class EnemyMovement : MonoBehaviour
         }
 
         else {
+            // patrol around the designated areas
             Patrol();
+            // chase the player if the player gets too close
             if (Vector2.Distance(transform.position, player.position) < chaseDistance)
             {
                 // Debug.Log("Player found. Start chasing now.");
